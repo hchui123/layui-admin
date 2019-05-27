@@ -19,12 +19,12 @@
         <a href="javascript:;"><i class="layui-icon layui-icon-set-fill"></i>&nbsp;&nbsp;系统管理</a>
         <dl class="layui-nav-child">
           <dd><a href="javascript:;" lay-id="2" lay-url="email.html">邮件管理</a></dd>
-          <dd><a href="javascript:;" lay-id="3" lay-url="message.html">消息管理</a></dd>
           <dd><a href="javascript:;" lay-id="4" lay-url="system.html">授权管理</a></dd>
         </dl>
       </li>
     </ul>
     <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href="javascript:;" lay-id="3" lay-url="email.html"><i class="layui-icon layui-icon-speaker" style="font-size:24px"></i><span class="layui-badge" style="height:12px;line-height:12px;position:absolute;top:35%;left:50%;border-radius:50%">6</span></a></li>
       <li class="layui-nav-item">
         <a href="javascript:;">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
@@ -74,16 +74,107 @@
     </div>
   </div>
   
-  <div class="layui-body toggle">
+  <div class="layui-body toggle" style="position:absolute;">
+    <!--固定layui-tab-title内容必须设置的position:absolute;-->
     <!-- 内容主体区域 -->
     <div class="layui-tab tab" lay-filter="tab" lay-allowClose="true">
-      <ul class="layui-tab-title">
-        <li class="layui-this" lay-id="0"><i class="layui-icon layui-icon-home"></i></li>
+      <ul class="layui-tab-title" style="position: absolute;">
+        <!--固定layui-tab-title内容必须设置的position: absolute;-->
+        <li class="layui-this home"><i class="layui-icon layui-icon-home"></i></li>
       </ul>
-      <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">1</div>
+      <div class="layui-tab-content" style="position: absolute;right: 0;left: 0;bottom: 0;top: 60px;overflow-y: auto;">
+        <!--固定layui-tab-title内容必须设置的上面的style-->
+        <div class="layui-tab-item layui-show">
+          <blockquote class="layui-elem-quote">WELCOME TO LAYUI ADMIN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="time"></span>&nbsp;&nbsp;&nbsp;<span id="day"></span></blockquote>
+          <fieldset class="layui-elem-field">
+            <legend>登录信息</legend>
+            <div class="layui-field-box" style="line-height:1.5em;letter-spacing: 1px;">
+              <h4>登录IP:127.0.0.1</h4>
+              <h4>管理员:Admin</h4>
+              <h4>登录时间:2019-05-27</h4>
+            </div>
+          </fieldset>
+          <table class="layui-table" lay-even lay-skin="row">
+            <colgroup>
+              <col width="150">
+              <col width="200">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="5">信息统计</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>统计</td>
+                <td>学员</td>
+                <td>文章</td>
+                <td>评论</td>
+                <td>留言</td>
+              </tr>
+              <tr>
+                <td>总数</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>今日</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="layui-table" lay-even lay-skin="row">
+            <thead>
+              <tr>
+                <th colspan="2">服务器信息</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr>
+                <td>服务器</td>
+                <td>apache2.5.6 (Win64) PHP7.2</td>
+              </tr>
+              <tr>
+                <td>IP地址</td>
+                <td>127.0.0.1</td>
+              </tr>
+              <tr>
+                <td>当前时间</td>
+                <td>127.0.0.1</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="layui-table" lay-even lay-skin="row">
+            <thead>
+              <tr>
+                <th colspan="2">服务器信息</th>
+              </tr> 
+            </thead>
+            <tbody>
+              <tr>
+                <td>服务器</td>
+                <td>apache2.5.6 (Win64) PHP7.2</td>
+              </tr>
+              <tr>
+                <td>IP地址</td>
+                <td>127.0.0.1</td>
+              </tr>
+              <tr>
+                <td>当前时间</td>
+                <td>127.0.0.1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
+
   </div>
   
   <div class="layui-footer toggle">

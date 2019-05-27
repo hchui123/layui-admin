@@ -1,0 +1,5 @@
+/*tab 首项不出现关闭符号*/
+.layui-tab-title .home .layui-tab-close{display:none;}
+
+
+

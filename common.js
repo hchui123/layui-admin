@@ -3,11 +3,6 @@ layui.use(['element','layer','jquery'],function(){
 	layer = layui.layer,
 	$ = layui.jquery;
 
-    //处理tab的首项不知道如何处理
-    // if($('.first')){
-    // 	$('.first').removeAttr('lay-allowClose')
-    // }
-    
     //监听toggle点击
     $('.top-nav .layui-icon-shrink-right').click(function(){
         if($(this).hasClass('layui-icon-shrink-right')){
@@ -34,12 +29,64 @@ layui.use(['element','layer','jquery'],function(){
     	}else{
     		element.tabAdd('tab',{
     			title:title,
-    			url: url,
+    			url: '<iframe src="' + url + '" name="iframe' + id + '" class="iframe" framborder="0" data-id="' + id + '" scrolling="auto" width="100%"  height="100%"></iframe>',
     			id:id
     		});
     		element.tabChange('tab',id);
     	}
-    	
-
     });
-})
+    //获取当前时间
+    setInterval(function(){time()},1000);
+    function time(){
+        function p(s) {
+            return s < 10 ? '0' + s: s;
+        }
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var day = date.getDate();
+        var h=date.getHours();       //获取当前小时数(0-23)
+        var m=date.getMinutes();     //获取当前分钟数(0-59)
+        var s=date.getSeconds();  
+        
+        var now=year+'-'+p(month)+"-"+p(day)+" "+p(h)+':'+p(m)+":"+p(s);
+        document.getElementById('time').innerHTML = now;
+        //不知道为什么这里不能用 $('.time')??
+    };
+    function day(){
+        var today;
+        var date = new Date();
+        var d = date.getDay();
+        switch(d)
+        { 
+            case 0:
+               today = '星期天';
+               break;
+            case 1:
+               today = '星期一';
+               break;
+            case 2:
+               today = '星期二';
+               break;
+
+            case 3:
+               today = '星期三';
+               break;
+            case 4:
+                today = '星期四';
+                break;
+            case 5:
+                 today = '星期五';
+            case 6:
+                 today = '星期六';
+                 break;
+            default:
+               today = '星期';
+               break;
+        }
+        return today;
+    }
+    document.getElementById('day').innerHTML = day();
+
+
+});

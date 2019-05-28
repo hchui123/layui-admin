@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>user</title>
+  <link rel="stylesheet" href="../layui/css/layui.css">
+  <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<button type="button" class="layui-btn add_user">添加学员</button>
+<table id="demo" lay-filter="test"></table>
+
+<script src="../layui/layui.js"></script>
+<script>
+layui.use(['table','jquery','element','layer'], function(){
+  var table = layui.table
+  ,$ = layui.jquery
+  ,element = layui.element
+  ,layer = layui.layer;
+  
+  //第一个实例
+  table.render({
+    elem: '#demo'
+    ,height: 312
+    ,url: 'data.txt' //数据接口
+    ,page: true //开启分页
+    ,cols: [[ //表头
+      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+      ,{field: 'username', title: '用户名', width:80}
+      ,{field: 'sex', title: '性别', width:80, sort: true}
+      ,{field: 'city', title: '城市', width:80} 
+      ,{field: 'sign', title: '签名', width: 177}
+      ,{field: 'experience', title: '积分', width: 80, sort: true}
+      ,{field: 'score', title: '评分', width: 80, sort: true}
+      ,{field: 'classify', title: '职业', width: 80}
+      ,{field: 'wealth', title: '财富', width: 135, sort: true}
+    ]]
+  });
+
+
+  $('.add_user').click(function(){
+      layer.open({
+          type: 1, 
+          content: '<form class="layui-form" action="">\
+  <div class="layui-form-item">\
+    <label class="layui-form-label">输入框</label>\
+    <div class="layui-input-inline">\
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">\
+    </div>\
+  </div>\
+  <div class="layui-form-item">\
+    <label class="layui-form-label">密码框</label>\
+    <div class="layui-input-inline">\
+      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">\
+    </div>\
+  </div>\
+  <div class="layui-form-item">\
+    <div class="layui-input-block">\
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>\
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>\
+    </div>\
+  </div>\
+</form>' //这里content是一个普通的String
+      });
+  });
+    
+  
+});
+</script>
+</body>
+</html>

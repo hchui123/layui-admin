@@ -1,7 +1,8 @@
-layui.use(['element','layer','jquery'],function(){
+layui.use(['element','layer','jquery','form'],function(){
 	var element = layui.element,
 	layer = layui.layer,
-	$ = layui.jquery;
+	$ = layui.jquery,
+    form = layui.form;
 
     //监听toggle点击
     $('.top-nav .layui-icon-shrink-right').click(function(){
@@ -21,7 +22,7 @@ layui.use(['element','layer','jquery'],function(){
     	var url = $(this).attr('lay-url');
     	var title = $(this).text();
         
-    	if(!id){return false;}
+    	if(!url){return false;}
 
     	var active = $('.toggle').find('li[lay-id='+id+']');
     	if(active.length>0){
@@ -29,7 +30,7 @@ layui.use(['element','layer','jquery'],function(){
     	}else{
     		element.tabAdd('tab',{
     			title:title,
-    			url: '<iframe src="' + url + '" name="iframe' + id + '" class="iframe" framborder="0" data-id="' + id + '" scrolling="auto" width="100%"  height="100%"></iframe>',
+                content:'<iframe src="' + url + '" name="iframe' + id + '" class="iframe" frameborder="0" data-id="' + id + '" scrolling="auto" width="100%"  height="100%"></iframe>',
     			id:id
     		});
     		element.tabChange('tab',id);
@@ -50,8 +51,9 @@ layui.use(['element','layer','jquery'],function(){
         var s=date.getSeconds();  
         
         var now=year+'-'+p(month)+"-"+p(day)+" "+p(h)+':'+p(m)+":"+p(s);
-        document.getElementById('time').innerHTML = now;
-        //不知道为什么这里不能用 $('.time')??
+        //document.getElementById('time').innerHTML = now;
+        
+        $("#time").html(now);
     };
     function day(){
         var today;
@@ -86,7 +88,9 @@ layui.use(['element','layer','jquery'],function(){
         }
         return today;
     }
-    document.getElementById('day').innerHTML = day();
+    //document.getElementById('day').innerHTML = day();
+    $("#day").html(day);//可以放函数名,也可以放函数day()!
+    
 
 
 });
